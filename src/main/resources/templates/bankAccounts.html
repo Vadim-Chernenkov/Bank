@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <a>Банковские счета</a>
+  <a href="personalDatas">Персональные данные</a>
+  <a href="logout">Выход</a>
+  <hr>
+  <a th:href="create-bankAccount">Создать новый банковский счет</a>
+  <table class="table table-hover">
+    <thead class="thead-dark">
+    <tr>
+      <th>Номер счета</th>
+      <th>Валюта</th>
+      <th>Сумма</th>
+      <th>Владелец счета</th>
+      <th>Обновить счет</th>
+      <th>Удаление счета</th>
+
+
+    </thead>
+    </tr>
+    <tbody>
+    <tr th:each="bankAccount: ${bankAccounts}">
+      <td th:text ="${bankAccount.numberBankAccount}"></td>
+      <td th:text ="${bankAccount.currency}"></td>
+      <td th:text ="${bankAccount.amountMoney}"></td>
+      <td th:text ="${bankAccount.personalNumberOwner}"></td>
+      <td>
+        <a th:href="@{update-bankAccount(numberBankAccount=${bankAccount.numberBankAccount})}">обновить</a>
+      </td>
+      <td>
+        <a class="text-danger" th:href="@{delete-bankAccount(numberBankAccount=${bankAccount.numberBankAccount})}">удалить</a>
+      </td>
+    </tr>
+    </tbody>
+
+  </table>
+</div>
+</body>
+</html>

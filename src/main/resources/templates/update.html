@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+  <form action="update" method="post" th:object="${bankAccount}">
+    <input type="hidden" name="numberBankAccount" th:field="*{numberBankAccount}">
+    Валюта: <input type="checkbox" name="currency" th:field="*{currency}">
+    <br>
+    Сумма: <input type="number" name="amountMoney" th:field="*{amountMoney}">
+    <br>
+    Владелец счета: <input type="text" name="personalNumberOwner" th:field="*{personalNumberOwner}">
+    <br>
+    <button type="submit" class="btn btn-success">Обновить  счет</button>
+  </form>
+</div>
+</body>
+</html>
